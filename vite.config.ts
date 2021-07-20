@@ -9,10 +9,10 @@ export default defineConfig({
     ? '/vue-el-tree-select/dist/'
     : '/',
   build: {
-    lib: {
-      entry: path.resolve(__dirname, 'public/index.html'),
-      name: 'ElTreeSelect'
-    },
+    // lib: {
+    //   entry: path.resolve(__dirname, 'public/index.html'),
+    //   name: 'ElTreeSelect'
+    // },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
