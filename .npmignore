@@ -1,0 +1,8 @@
+node_modules
+.DS_Store
+*.local
+.gitignore
+public
+src
+package-lock.json
+tsconfig.json

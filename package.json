@@ -1,0 +1,28 @@
+{
+  "name": "vue-el-tree-select",
+  "version": "0.0.2",
+  "author": "rupertqin",
+  "description": "tree select base on element-ui2.x",
+  "main": "dist/el-tree-select.umd.js",
+  "module": "dist/el-tree-select.es.js",
+  "style": "dist/style.css",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rupertqin/vue-el-tree-select.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "element-ui": "^2.15.3",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "sass": "^1.35.1",
+    "typescript": "^4.3.2",
+    "vite": "^2.4.0",
+    "vite-plugin-vue2": "^1.4.0"
+  }
+}
