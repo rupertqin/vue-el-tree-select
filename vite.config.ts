@@ -5,9 +5,12 @@ const { createVuePlugin } = require('vite-plugin-vue2');
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [createVuePlugin()],
+  base: process.env.NODE_ENV === 'production'
+    ? '/vue-el-tree-select/dist/'
+    : '/',
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/components/index.ts'),
+      entry: path.resolve(__dirname, 'public/index.html'),
       name: 'ElTreeSelect'
     },
     rollupOptions: {
