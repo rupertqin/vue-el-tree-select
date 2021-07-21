@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <HelloWorld />
     <TreeSelect 
       v-model="value"
       style="width: 70%;"
