@@ -1,5 +1,5 @@
 <template>
-  <Select
+  <el-select
     ref="select"
     :value="value"
     popper-class="er-tree-select"
@@ -17,14 +17,14 @@
     @remove-tag="onRemoveTag"
     @visible-change="onVisibleChange"
   >
-    <Option
+    <el-option
       v-for="option in valueOptions"
       :key="getPropValue(option, 'value')"
       :value="getPropValue(option, 'value')"
       :label="getPropValue(option, 'label')"
-    ></Option>
+    ></el-option>
 
-    <Tree
+    <el-tree
       ref="tree"
       empty-text="无数据"
       :data="treeData"
@@ -50,8 +50,8 @@
         >
         </div>
       </template>
-    </Tree>
-  </Select>
+    </el-tree>
+  </el-select>
 </template>
 
 <script lang="ts">
@@ -60,6 +60,10 @@ import type { PropType } from "vue";
 import Vue from "vue";
 import difference from "lodash/difference";
 import { getNodeByKey } from "./utils";
+
+Vue.component(Tree.name, Tree);
+Vue.component(Select.name, Select);
+Vue.component(Option.name, Option);
 
 const DEFAULT_DATA_KEY = {
   value   : "value",
@@ -81,9 +85,6 @@ function getAllKeys(valueKey, isLeafKey, childKey, treeData, rv = []) {
 
 export default Vue.extend({
   name      : "er-tree-select",
-  components: {
-    Tree, Select, Option,
-  },
   model: {
     prop : "value",
     event: "change",
@@ -272,7 +273,7 @@ export default Vue.extend({
       return this.getPropValue(data, 'label')?.indexOf(value) !== -1;
     },
     setSelected (value: number | string | number[] | string[]): void {
-      if (!value) return;
+      if (!value || !this.$refs || !this.$refs.tree || !this.$refs.tree.setCheckedKeys) return;
       if (this.multiple) {
         this.$refs.tree.setCheckedKeys(value)
       } else {
