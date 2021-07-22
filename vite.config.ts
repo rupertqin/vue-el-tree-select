@@ -1,6 +1,7 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 const { createVuePlugin } = require('vite-plugin-vue2');
+import externalGlobals from "rollup-plugin-external-globals";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -23,7 +24,13 @@ export default defineConfig({
         globals: {
           vue: 'Vue'
         }
-      }
+      },
+      plugins: [
+        externalGlobals({
+          vue: "Vue",
+          'element-ui': "ELEMENT",
+        })
+      ]
     }
   }
 })
