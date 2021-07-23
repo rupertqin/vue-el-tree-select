@@ -6,9 +6,7 @@ import externalGlobals from "rollup-plugin-external-globals";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [createVuePlugin()],
-  base: process.env.NODE_ENV === 'production'
-    ? '/vue-el-tree-select/dist/'
-    : '/',
+  base: process.env.BASE || '/',
   build: {
     // lib: {
     //   entry: path.resolve(__dirname, 'public/index.html'),
